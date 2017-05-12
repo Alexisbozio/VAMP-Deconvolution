@@ -16,14 +16,11 @@ Contents
 ---------------------------------------------------------------------------
 scripts: 
     CS_Demo_Vamp_on_convoluted_images.m : Deconvolution of a blurred and downsampled image with the VAMP algorithm with the use of the
-    selective inversion method and BM3D denoiser
-    
+    selective inversion method and BM3D denoiser    
     Demo_compare_timing_vamp.m : Deconvolution of a blurred and downsampled toy image (only 0 and 1) with the Vector Approximate 
     Message Passing algorithm. Comparison in timing between the selected inversion and the use of Woosbury's identity
-
     Demo_streaming_vamp.m : Deconvolution of a blurred and downsampled toy image (only 0 and 1) with the Vector Approximate Message 
     Passing algorithm using the selected inversion method and by dividing the image by block
-
     Demo_Super_resolution_VAMP.m : Super_resolution reconstruction with Vamp and the Generalized Expectation Consistent Signal Recovery 
     for Nonlinear Measurements.
 
