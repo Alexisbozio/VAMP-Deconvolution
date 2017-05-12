@@ -35,6 +35,6 @@ This repository includes the BM3D package.
 The latest versions of this package can be found at:
     BM3D: http://www.cs.tut.fi/~foi/GCF-BM3D/
 
-This repository uses a modified version of the Selinv implementation of the Selected Inversion algorithm, which computes the selected elements of the inverse of a general sparse symmetric matrix. 
+This repository is calling the Selinv implementation of the Selected Inversion algorithm, which computes the selected elements of the inverse of a general sparse symmetric matrix. 
 The latest versions of this package can be found at:
     https://math.berkeley.edu/~linlin/software.html
