@@ -1,4 +1,4 @@
-# Super-Resolution-Imaging-with-Message-Passing-Algorithms
+# VAMP Deconvolution
 
 Original release date : 12/5/17
 
