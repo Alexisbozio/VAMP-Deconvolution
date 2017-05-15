@@ -77,9 +77,7 @@ for j=1:n_blocks
             block(rows,column)=1;
             sel_el_m=logical(reshape(block,[],1));
             
-            figure(3);subplot(221);imb = imagesc(block);
-            colormap gray;axis image;colorbar();title('estimate with vamp');
-
+          
             y_vec=y(sel_el_m,:);
             
             
