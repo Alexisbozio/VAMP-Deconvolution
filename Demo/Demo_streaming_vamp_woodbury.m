@@ -57,9 +57,9 @@ opts.prior_prmts=rho;
 opts.prior=f;
 opts.channel_prmts=delta;
 r=@channel_awgn;
-opts.channel=r;
+%opts.channel=r;
 s=@channel_wood;            %Using Woodsbury Identity
-%opts.channel=s;
+opts.channel=s;
 
 x_hat1=zeros(n,1);
 A=zeros(n,1);
