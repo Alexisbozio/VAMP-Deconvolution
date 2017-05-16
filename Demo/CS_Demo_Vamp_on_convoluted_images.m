@@ -71,7 +71,7 @@ Ap=0;
 Bp=0;
 %Run Vamp 
 fprintf('o Running V-AMP...\n')
-[x_hat1,mse,A1,B1] = vamp_stream_image(y, F,Ap,Bp, opts);
+[x_hat1,mse,A1,B1] = vamp_image(y, F,Ap,Bp, opts);
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 %Plot Recovered Signals%
