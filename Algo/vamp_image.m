@@ -1,5 +1,4 @@
-function [mse,a1] = VAMP_image(y,F,opts)
-
+function[a1,mse, A1, B1]= vamp_image(y, F,Ap,Bp, opts)
     channel = opts.channel;
     channel_prmts = opts.channel_prmts;
     x0 = opts.x0;              
@@ -8,9 +7,8 @@ function [mse,a1] = VAMP_image(y,F,opts)
     damp_meas = opts.damp_meas;
     height=opts.height;
     width=opts.width;
-  
    [m n] = size(F);
-
+    
  
     A1 = zeros(n,1);
     B1 = zeros(n,1);
@@ -39,23 +37,25 @@ function [mse,a1] = VAMP_image(y,F,opts)
         A2 = damp(A2_new, A2,damp_meas); 
         B2 = damp(B2_new, B2,damp_meas);
         [a2, c2] = channel(A2, B2, A0,B0);
-        c2=mean(c2);
+        c2=c2(logical(c2));
+        c2 = mean(c2);
         fprintf('    - mean(c2): %0.3f\n',c2);
-        figure(42);
+         figure(42);
             subplot(221);
-            imagesc(reshape(a2,height,height));
+            imagesc(reshape(a2,height,width));
             colormap gray;
             axis image;
             title('a2');
             colorbar();
             pause(0.1);
+      
         
         
         %A1_new = 1. ./ c2 - A2
         A1_new = max(1. ./ c2 - A2, 1e-11);
         B1_new = a2 ./ c2 - B2;
-        A1 = damp(A1_new, A1,damp_meas); 
-        B1 = damp(B1_new, B1,damp_meas);
+        A1 = Ap + damp(A1_new, A1,damp_meas); 
+        B1 = Bp + damp(B1_new, B1,damp_meas);
         r1=255.*B1./A1;
         v1=mean(1./A1);
         
@@ -64,15 +64,15 @@ function [mse,a1] = VAMP_image(y,F,opts)
         a1=a1(:);
         fprintf('    - mean(v1): %0.3f\n',v1);
         
-        figure(42);
+        
+             figure(42);
             subplot(222);
-            imagesc(reshape(a1,height,height));
+            imagesc(reshape(a1,height,width));
             colormap gray;
             axis image;
             title('a1');
             colorbar();
             pause(0.1);
-        
         
         eta=randn(n,1);
         epsilon=max(r1(:))/1000+eps;
