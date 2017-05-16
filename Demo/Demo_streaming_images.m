@@ -111,7 +111,7 @@ for j=j_axis
             opts.x0=x0(sel_el_n);
             fprintf('o Running V-AMP...\n')
             tic;
-            [x_hat_red,mse, A1,B1] = vamp_stream_image(y_vec, F_red, Ap, Bp, opts);
+            [x_hat_red,mse, A1,B1] = vamp_image(y_vec, F_red, Ap, Bp, opts);
             toc 
             
             %Update priors
