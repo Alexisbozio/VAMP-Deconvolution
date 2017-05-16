@@ -14,7 +14,7 @@ ImIn=double(imread(filename));
 
 %Parameters of the problem
 delta=1e-6;                  %variance of noise
-height=200;                  %length side of original image
+height=50;                  %length side of original image
 width=height;
 downsizing=2;               % downsizing factor
 blur_var=1;                  % variance of Gaussian kernel
@@ -59,7 +59,7 @@ colormap gray;axis image;colorbar();pause(0.1);title('Transformed');
 %Options
 opts.channel_prmts=delta;
 opts.x0=x0;
-opts.t_max=120;
+opts.t_max=50;
 opts.eps_conv=1e-13;
 opts.damp_meas = 0.5;
 opts.height=height;
@@ -67,10 +67,11 @@ opts.width=width;
 r=@channel_awgn;            %Using Selected Inversion
 opts.channel=r;
 
-
+Ap=0;
+Bp=0;
 %Run Vamp 
 fprintf('o Running V-AMP...\n')
-[mse x_hat1] = VAMP_image(y, F, opts);
+[x_hat1,mse,A1,B1] = vamp_stream_image(y, F,Ap,Bp, opts);
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 %Plot Recovered Signals%
@@ -84,7 +85,7 @@ colormap gray;axis image;colorbar();title('estimate with vamp');
 %%%%%%%%%%%%%%%%%%%%%%%%
 %Plot mse Trajectories%
 %%%%%%%%%%%%%%%%%%%%%%%%
-
+denoiser='BM3D';
 figure(2); clf;
 plot(mse,'.-','Displayname',[denoiser,'-VAMP'])
 grid on;
