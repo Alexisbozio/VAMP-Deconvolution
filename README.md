@@ -10,7 +10,7 @@ Reference #2          : "Generalized Expectation Consistent Signal Recovery for 
 Authors               : Hengtao He, Chao-Kai Wen, Shi Jin
 Download              : https://arxiv.org/abs/1701.04301
 
-
+Contrubutors : Alexis Gladiline Bozio, Florent Krzakala, Anthony Maggs, Andre Manoel, Eric Tramel 
 
 Contents
 ---------------------------------------------------------------------------
