@@ -1,6 +1,6 @@
 %Deconvolution of a blurred and downsampled toy image (only 0 and 1) with
-%the Vector Approximate Message Passing algorithm using the selected
-%inversion method and by dividing the image by block
+%the Vector Approximate Message Passing algorithm using the woodbury
+%identity method and by dividing the image by block
 
 clear
 seed=int64(14753);
