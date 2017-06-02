@@ -25,9 +25,8 @@ function[a1, A1, B1]= vamp_stream_wood(y, F,Ap,Bp, opts)
     y=sparse(y);
     channel_prmts=sparse(channel_prmts);
    
-    A0 = F' * F ./ channel_prmts;
-    B0 = F' * y ./ channel_prmts;
-
+    A0 = F'/channel_prmts * F ;
+    B0 = F'/ channel_prmts  * y;
 
     for t = 1:t_max
         a1_old = a1;
